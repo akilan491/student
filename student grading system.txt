@@ -1,0 +1,235 @@
+Sample Code
+HTML (index.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Grading System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<h2>Student Grading System</h2>
+<form id="gradingForm">
+<label for="studentName">Student Name:</label>
+<input type="text" id="studentName" required>
+<label for="rollNumber">Roll Number:</label>
+<input type="text" id="rollNumber" required>
+<label for="marks">Marks (out of 100):</label>
+<input type="number" id="marks" required min="0" max="100">
+<button type="submit">Calculate Grade</button>
+</form>
+<div id="result"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+CSS (style.css)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Example</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login Form</h2>
+    <form onsubmit="handleSubmit(event)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      document.getElementById('result').textContent = `Welcome, ${username}!`;
+    }
+  </script>
+</body>
+</html>
+JavaScript (script.js)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Grading System</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 320px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Grading Form</h2>
+    <form id="gradingForm">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" required>
+
+      <label for="rollNumber">Roll Number:</label>
+      <input type="text" id="rollNumber" required>
+
+      <label for="marks">Marks:</label>
+      <input type="number" id="marks" required min="0" max="100">
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById("gradingForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("studentName").value;
+      const rollNumber = document.getElementById("rollNumber").value;
+      const marks = parseInt(document.getElementById("marks").value);
+
+      let grade;
+      if (marks >= 90) {
+        grade = "A";
+      } else if (marks >= 75) {
+        grade = "B";
+      } else if (marks >= 50) {
+        grade = "C";
+      } else {
+        grade = "F";
+      }
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Roll Number:</strong> ${rollNumber}</p>
+        <p><strong>Marks:</strong> ${marks}</p>
+        <p><strong>Grade:</strong> ${grade}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
